@@ -6,6 +6,8 @@ public class Recursion1 {
         System.out.println(Factorial(5));
         System.out.println(sum(5));
         System.out.println(Fibonacci(5));
+        int[] array = {1,2,3,1,2,3,3};
+        System.out.println(lastOccurence(array,1,6));
     }
     //print numbers in decreasing order from n to  0
 
@@ -75,13 +77,34 @@ public class Recursion1 {
     }
     //write a function to find the first occurence of an element in an array?
     public static int firstOccurence(int[] arr, int number, int index){
-        if (index==arr.length-1){
-            return -1; //this means the array is finished and no number found
-        }
         if (arr[index]==number){
             return index;
+        }
+        if (index==arr.length-1){
+            return -1; //this means the array is finished and no number found
         }
         return firstOccurence(arr,number,index+1);
     }
     //write a function to find the last occurence of an element in an array?
+    //ToSelf- revise the implementation in AC once- the logic is different there
+    public static int lastOccurence(int[] arr, int number, int index){
+        if (arr[index]== number){
+            return index;
+        }
+        if (index<0) {
+            return -1;
+        }
+
+
+        return lastOccurence(arr, number, index-1);
+    }
+
+    //print x^n
+    public static int power(int base, int power){
+        if (power==0){
+            return 1;
+        }
+        return base*power(base, power-1);
+    }
+
 }
