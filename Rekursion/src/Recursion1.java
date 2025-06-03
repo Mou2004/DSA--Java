@@ -107,4 +107,6 @@ public class Recursion1 {
         return base*power(base, power-1);
     }
 
+    //print x^n optimised function--
+
 }
