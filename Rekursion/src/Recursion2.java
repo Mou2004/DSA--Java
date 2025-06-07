@@ -35,4 +35,74 @@ public class Recursion2 {
         else return tilingWays4(n-1)+tilingWays4(n-4);
     }
 
+    //remove duplicates in a string
+    //given all letters are small a-z
+    //for all character/big/small letters a-z,%%etc--hashSet implementation
+    public String uniqueString(String input, boolean[] array, StringBuilder newStr, int index){
+       if(index==input.length()){
+           return newStr.toString();//since index is the counter to loop through the input, if it ends i.e end of the string
+       }
+       char currChar = input.charAt(index);
+       if (array[currChar-'a']==true){//if the bool in the index of the current character is true that means, its already occured in the input string before
+           uniqueString(input,array,newStr,index+1);
+           return newStr.toString();
+       }
+       else {//if the current char hasn't occured before, we append it to the newStr and continue to apply the function in the next index
+           newStr.append(currChar);
+           uniqueString(input,array,newStr,index+1);
+           return newStr.toString();
+       }
+
+    }
+    //given n friends, each one can remain single or paired up with some other friend
+    //each friend can be paired only once
+    //find the total no. of ways in which the friends can be paired up or remain single
+    public static int friendsPairing(int n){
+        if (n==1||n==2){
+            return n;
+        }
+
+        //choice to remain single--if one decides to remain single, we have f(n-1) remaining people to solve the problem for
+        int fnm1 = friendsPairing(n-1);
+
+        //choice to pair
+        int fnm2 =friendsPairing(n-2);
+        int pairWays = (n-1)*fnm2;
+
+        int totalWays = fnm1+pairWays;
+        return totalWays;//return friendsPairing(n-1)+(n-1)*friendsPairing(n-2)
+    }
+
+    //print all binary strings of size N without consecutive ones- i.e 1 shouldn't appear consecutively
+    public static void printBinaryString(int n, int lastPlace, String str){
+        //base case
+        if(n==0){
+            System.out.println(str);
+            return;
+        }
+
+        if(lastPlace==0){
+            //place 0 on chair n
+            printBinaryString(n-1,0, str+"0");
+            //place 1 and change lastPlace to 1
+            printBinaryString(n-1,1, str+"1");
+        }
+        else{
+            printBinaryString(n-1,0,str+"0");
+        }
+
+        //shorter version of code-
+        /*
+        *  printBinaryString(n-1,0, str.append("0"));
+        * if(lastPlace==0){
+        * printBinaryString(n-1,1, str.append("1"));
+        * }
+        * */
+
+    }
+
+    public static void main(String[] args) {
+        printBinaryString(3,0,"");
+    }
+
 }
