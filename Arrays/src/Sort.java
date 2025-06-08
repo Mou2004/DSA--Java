@@ -1,4 +1,6 @@
-public class Sort {
+public class Sort
+    //various sorting algorithms on arrays
+{
     //bubble sort
     //push large elements towards the end of the array by pushing swapping with adjacent elements
     public static void BubbleSort(int[] arr){
