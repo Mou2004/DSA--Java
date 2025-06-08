@@ -23,6 +23,8 @@ public class Sort {
         }
 
     }
+
+    //SelectionSort
     public static void SelectionSort(int[] arr){
         for (int i=0;i<arr.length-1;i++){
             //find min in the remaining elements after i
@@ -38,6 +40,12 @@ public class Sort {
             arr[minPos] = temp;
         }
     }
+
+    //countingSort descending
+
+
+
+    //Insertion Sort
     public static void insertionSort(int[] arr){
         for (int i=1;i < arr.length;i++){
             int curr = arr[i];
@@ -50,6 +58,15 @@ public class Sort {
             arr[prev+1] = curr;
         }
     }
+    //insertionSort descending
+
+
+    //CountingSort
+
+
+
+    //CountingSort descending
+
     public static void printArray(int[] arr){
         for (int i=0;i< arr.length;i++){
             System.out.print(arr[i]+",");
