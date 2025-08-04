@@ -1,6 +1,6 @@
 public class Search {
     //Search is to find a certain key/value in the array
-    //Linear Search- simple iterative approach by goind through each element of the array
+    //Linear Search- simple iterative approach by going through each element of the array
     public static int linearSearch(int[] array, int key){
         for (int i =0; i< array.length;i++){
             if (array[i]==key){
