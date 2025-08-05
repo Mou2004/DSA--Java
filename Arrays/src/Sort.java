@@ -2,7 +2,8 @@ public class Sort
     //various sorting algorithms on arrays
 {
     //bubble sort
-    //push large elements towards the end of the array by pushing swapping with adjacent elements
+    //push large elements towards the en
+    // d of the array by pushing swapping with adjacent elements
     public static void BubbleSort(int[] arr){
         for(int turns=0;turns< arr.length-1;turns++){
 
@@ -27,10 +28,11 @@ public class Sort
     }
 
     //SelectionSort
+    //select the smallest(or largest) element from the array and push it to the beginning by swapping
     public static void SelectionSort(int[] arr){
-        for (int i=0;i<arr.length-1;i++){
-            //find min in the remaining elements after i
+        for (int i=0;i<arr.length-1;i++){//in SS we don't need to check the last element in the outerloop, by the time we have placed the corrdct values at all other positions, the last element is automatically in correct spot
             int minPos =i;
+            //find min in the remaining elements after i
             for (int j=i+1;j<arr.length;j++){
                 if (arr[minPos]>arr[j]){
                     minPos=j;
@@ -42,9 +44,6 @@ public class Sort
             arr[minPos] = temp;
         }
     }
-
-    //countingSort descending
-
 
 
     //Insertion Sort
@@ -64,8 +63,25 @@ public class Sort
 
 
     //CountingSort
-
-
+    public static void countingSort(int arr[]){
+        int largest = Integer.MIN_VALUE;
+        for (int i=0; i<arr.length;i++){
+            largest= Math.max(largest,arr[i]);
+        }
+        int newArr[] = new int[largest+1];//index starts from 0
+        for (int i=0;i< newArr.length;i++){
+            newArr[arr[i]]++;
+        }
+        //Sorting
+        int j=0;
+        for (int i =0;i<newArr.length;i++){
+            while(newArr[i]>0){
+                arr[j] =i;
+                j++;
+                newArr[i]--;
+            }
+        }
+    }
 
     //CountingSort descending
 
