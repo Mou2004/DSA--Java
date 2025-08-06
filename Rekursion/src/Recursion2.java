@@ -43,12 +43,14 @@ public class Recursion2 {
            return newStr.toString();//since index is the counter to loop through the input, if it ends i.e end of the string
        }
        char currChar = input.charAt(index);
+
        if (array[currChar-'a']==true){//if the bool in the index of the current character is true that means, its already occured in the input string before
            uniqueString(input,array,newStr,index+1);
            return newStr.toString();
        }
        else {//if the current char hasn't occured before, we append it to the newStr and continue to apply the function in the next index
            newStr.append(currChar);
+           array[currChar - 'a'] = true;
            uniqueString(input,array,newStr,index+1);
            return newStr.toString();
        }

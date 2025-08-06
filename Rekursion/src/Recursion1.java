@@ -60,7 +60,7 @@ public class Recursion1 {
         return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 
-    //check if a given array is sorted
+    //check if a given array is sorted(ascending order)
     public static boolean checkSorted(int[] arr, int i) {
         if (i==arr.length-1){
             return true;
@@ -75,6 +75,8 @@ public class Recursion1 {
             // return checkSorted(arr, i); less clean of a code
         }
     }
+
+
     //write a function to find the first occurence of an element in an array?
     public static int firstOccurence(int[] arr, int number, int index){
         if (arr[index]==number){
@@ -88,18 +90,34 @@ public class Recursion1 {
     //write a function to find the last occurence of an element in an array?
     //ToSelf- revise the implementation in AC once- the logic is different there
     public static int lastOccurence(int[] arr, int number, int index){
-        if (arr[index]== number){
-            return index;
-        }
+
         if (index<0) {
             return -1;
         }
+
+        if (arr[index]== number){
+            return index;
+        }
+
 
 
         return lastOccurence(arr, number, index-1);
     }
 
+    //AC logic
+    public static int lastOccur(int arr[], int key, int i){
+        if (i==arr.length){
+            return -1;
+        }
+        int isFound = lastOccur(arr, key, i+1);
+        if(isFound==-1 && arr[i]==key){
+            return i;
+        }
+        return isFound;
+    }
+
     //print x^n
+    //time complexity-O(n)
     public static int power(int base, int power){
         if (power==0){
             return 1;
@@ -108,5 +126,15 @@ public class Recursion1 {
     }
 
     //print x^n optimised function--
-
+    public static int powerOptimised(int x, int n){
+        if (n ==0){
+            return 1;
+        }
+        int halfPower = powerOptimised(x,n/2);
+        int halfPowerSq = halfPower*halfPower;
+        if (n%2!=0){
+            halfPowerSq = x*halfPowerSq;
+        }
+        return halfPowerSq;
+    }
 }
