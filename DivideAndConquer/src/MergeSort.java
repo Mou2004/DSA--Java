@@ -10,7 +10,7 @@ public class MergeSort {
     public static void mergeSort(int arr[], int startIndex, int endIndex){
         //basecase i.e  when the array has one or less elements
         if (startIndex>=endIndex){
-            return; //1 element is already sorter
+            return; //1 element is already sorted
         }
 
         int mid = startIndex    +(startIndex-endIndex)/2;//=(si+ei)/2; use this when si and ei are small, large values the first formula is better
