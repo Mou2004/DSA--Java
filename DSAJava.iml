@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Arrays/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Rekursion/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/DivideAndConquer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Backtracking/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
