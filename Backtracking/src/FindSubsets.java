@@ -28,8 +28,6 @@ public class FindSubsets {
         newList.remove(list.get(i));
         findArraySubsets(list,i+1,newList);
 
-
-
     }
 
     public static void printArray(int[] arr){
